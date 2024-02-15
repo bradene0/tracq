@@ -7,7 +7,7 @@ const ExerciseGrid = () => {
   const daysOfYear = Array.from({ length: 365 }, (_, index) => index + 1);
 
   // Calculate the number of columns per row
-  const numCols = 67;
+  const numCols = 40;
 
   // Calculate the number of rows needed
   const numRows = Math.ceil(daysOfYear.length / numCols);
@@ -18,18 +18,24 @@ const ExerciseGrid = () => {
       {Array.from({ length: numCols }).map((_, colIndex) => {
         const day = rowIndex * numCols + colIndex + 1;
         if (day > daysOfYear.length) return null;
+        const date = new Date(2024, 0, day); // January is 0 in JavaScript Date object
+        const formattedDate = date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
         return (
-          <div
-            key={day}
-            className="bg-black w-4 h-4 rounded-md flex items-center justify-center"
-          ></div>
+          <div key={day} className="relative">
+            <div
+              className="bg-black w-5 h-5 rounded-md flex items-center justify-center cursor-pointer"
+              style={{ marginRight: "3.5px", marginBottom: "3.5px" }}
+            >
+              <div className="tooltip">{formattedDate}</div>
+            </div>
+          </div>
         );
       })}
     </div>
   );
 
   return (
-    <div className="grid grid-cols-92 gap-0" style={{ width: "100%" }}>
+    <div className="grid grid-cols-67 gap-0" style={{ width: "100%" }}>
       {Array.from({ length: numRows }).map((_, rowIndex) => renderRow(rowIndex))}
     </div>
   );
