@@ -1,7 +1,7 @@
 // pages/inputMinutes.js
-
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+"use client";
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 const InputMinutesPage = () => {
   const router = useRouter();
