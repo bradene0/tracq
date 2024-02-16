@@ -1,6 +1,6 @@
 // exerciseService.js
 
-import supabase from './supabase';
+import supabase from './supabase/supabase';
 
 // Function to insert exercise data
 export async function addExercise(userId, date, minutes) {
