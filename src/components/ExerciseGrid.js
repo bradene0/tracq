@@ -1,7 +1,6 @@
 // components/ExerciseGrid.js
-"use client";
+
 import React from "react";
-import Link from 'next/link';
 
 const ExerciseGrid = () => {
   // Generate an array of 365 items representing each day of the year
@@ -23,16 +22,12 @@ const ExerciseGrid = () => {
         const formattedDate = date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
         return (
           <div key={day} className="relative">
-            <Link href={"/input-minutes"}>
-              
-                <div
-                  className="bg-black w-5 h-5 rounded-md flex items-center justify-center cursor-pointer"
-                  style={{ marginRight: "3.5px", marginBottom: "3.5px" }}
-                >
-                  <div className="tooltip">{formattedDate}</div>
-                </div>
-              
-            </Link>
+            <div
+              className="bg-black w-5 h-5 rounded-md flex items-center justify-center cursor-pointer"
+              style={{ marginRight: "3.5px", marginBottom: "3.5px" }}
+            >
+              <div className="tooltip">{formattedDate}</div>
+            </div>
           </div>
         );
       })}
@@ -40,8 +35,10 @@ const ExerciseGrid = () => {
   );
 
   return (
-    <div className="grid grid-cols-67 gap-0" style={{ width: "100%" }}>
-      {Array.from({ length: numRows }).map((_, rowIndex) => renderRow(rowIndex))}
+    <div className="exercise-grid-wrapper">
+      <div className="grid grid-cols-67 gap-0" style={{ width: "100%" }}>
+        {Array.from({ length: numRows }).map((_, rowIndex) => renderRow(rowIndex))}
+      </div>
     </div>
   );
 };

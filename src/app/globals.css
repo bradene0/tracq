@@ -66,3 +66,8 @@ body {
 .cursor-pointer:hover .tooltip {
   visibility: visible;
 }
+
+
+.exercise-grid-wrapper {
+  background-color: lightgreen; /* Light gray background color */
+}
