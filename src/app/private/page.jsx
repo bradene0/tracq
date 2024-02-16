@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 
-import { createClient } from '../../../utils/supabase/server/server'
+import { createClient } from '../../utils/supabase/server/server'
 
 export default async function PrivatePage() {
   const cookieStore = cookies()
